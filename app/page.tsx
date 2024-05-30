@@ -5,9 +5,22 @@ import Image from 'next/image';
 import { Rate } from 'antd';
 import Link from 'next/link';
 
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
+
 export default function Home() {
-  const [data, setData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
+  const [filteredData, setFilteredData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -18,7 +31,7 @@ export default function Home() {
         const response = await axios.get('https://fakestoreapi.com/products');
         setData(response.data);
         setFilteredData(response.data); // Initialize filtered data
-      } catch (err) {
+      } catch (err:any ) {
         setError(err.message);
       } finally {
         setLoading(false);
