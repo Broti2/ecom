@@ -43,7 +43,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const results = data.filter(product =>
+    const results = data.filter((product:Product) =>
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setFilteredData(results);

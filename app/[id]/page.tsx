@@ -11,9 +11,20 @@ interface Params {
 interface DetailsProps {
   params: Params;
 }
-
+interface Product {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
 export default function Details({ params }: DetailsProps) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -55,7 +66,7 @@ export default function Details({ params }: DetailsProps) {
       <h1 className="text-4xl font-bold italic bg-gray-700 p-5">Products Details</h1>
       <div className="md:flex md:h-[100vh]">
         <div className="md:w-4/5 h-full border-4  bg-white justify-center flex">
-          <Image
+          <Image loading='lazy'
             className="py-10 h-full w-full object-contain"
             width={150}
             height={150}
