@@ -22,7 +22,7 @@ export default function Details({ params }: DetailsProps) {
       try {
         const response = await axios.get('https://fakestoreapi.com/products');
         setData(response.data);
-      } catch (err) {
+      } catch (err:any) {
         setError(err.message);
       } finally {
         setLoading(false);

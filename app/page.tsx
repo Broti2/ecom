@@ -32,7 +32,8 @@ export default function Home() {
         setData(response.data);
         setFilteredData(response.data); // Initialize filtered data
       } catch (err:any ) {
-        setError(err.message);
+        const {error}=err;
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -50,11 +51,11 @@ export default function Home() {
 
   if (loading)
     return (
-      <p className="absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
+      <p className="absolute bg-transparent left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
         Loading...
       </p>
     );
-  if (error) return <p>Error: {error}</p>;
+  if (error) return <p className="absolute bg-transparent left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">Error: {error}</p>;
 
   return (
     <div><div className='md:flex'>
