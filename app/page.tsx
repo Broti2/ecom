@@ -76,6 +76,7 @@ export default function Home() {
             <Link href={`${product.id}`}>
               <div className="aspect-square w-full h-[250px] object-contain bg-white ">
                 <Image
+                loading='lazy'
                   className="w-full h-full object-contain"
                   src={product.image}
                   alt={product.title}
