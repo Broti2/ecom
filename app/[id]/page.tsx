@@ -69,9 +69,9 @@ export default function Details({ params }: DetailsProps) {
 
   return (
     <>
-      <div className="flex bg-gray-700">
+      <div className="md:flex bg-gray-700">
         <Link href={'/'}>
-        <div className="py-4 px-10">
+        <div className="py-4 max-sm:hidden px-10">
           <svg
             style={{ color: 'white' }}
             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ export default function Details({ params }: DetailsProps) {
             ></path>
           </svg>
         </div></Link>
-        <h1 className="text-4xl font-bold italic  p-5">Products Details</h1>{' '}
+        <h1 className="text-4xl font-bold italic max-sm:py-4 max-sm:px-2  md:p-5">Products Details</h1>{' '}
       </div>
       <div className="md:flex md:h-[100vh]">
         <div className="md:w-4/5 h-full border-4  bg-white justify-center flex">
