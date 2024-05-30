@@ -56,7 +56,7 @@ export default function Details({ params }: DetailsProps) {
   const { id } = params;
 
   // Find the product that matches the id
-  const product = data.find((item: any) => item.id === parseInt(id));
+  const product = data.find((item) => item.id === parseInt(id));
 
   // Render product details if a matching product is found
   if (!product) return <p>Product not found</p>;
